@@ -1,0 +1,26 @@
+version: "3.4"
+services:
+  docker-machine-server-bug:
+    image: pchico83/docker-machine-server:bug
+    build: 
+      context: docker-machine-server/bug
+  docker-machine-server-fixed:
+    image: pchico83/docker-machine-server:fixed
+    build: 
+      context: docker-machine-server/fixed
+  ksync:
+    image: pchico83/ksync
+    build: 
+      context: ksync-server
+  tasks-bug1:
+    image: pchico83/tasks:bug1
+    build: 
+      context: tasks/bug1
+  tasks-bug2:
+    image: pchico83/tasks:bug2
+    build: 
+      context: tasks/bug2
+  tasks-fixed:
+    image: pchico83/tasks:fixed
+    build: 
+      context: tasks/fixed

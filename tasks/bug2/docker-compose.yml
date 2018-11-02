@@ -1,0 +1,16 @@
+version: "3.4"
+services:
+  api:
+    image: pchico83/tasks:bug1
+    build: .
+      context: docker-machine-server/bug
+  worker1:
+    image: pchico83/tasks:bug1
+    command: celery
+  worker2:
+    image: pchico83/tasks:bug1
+    command: celery
+  mysql:
+    image: mysql
+  rabbitmq:
+    image: rabbitmq
