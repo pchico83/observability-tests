@@ -4,8 +4,8 @@ import (
 	"os/exec"
 )
 
-func version() error {
-	cmd := exec.Command("docker-machine", "version")
+func status() error {
+	cmd := exec.Command("docker-machine", "version", "elastest")
 	err := cmd.Run()
 	if err != nil {
 		return err

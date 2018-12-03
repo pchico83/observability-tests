@@ -7,18 +7,18 @@ import (
 )
 
 func restart() error {
-	cmd := exec.Command("docker-machine", "restart")
+	cmd := exec.Command("docker-machine", "restart", "elastest")
 	err := cmd.Run()
 	if err != nil {
 		return err
 	}
-	cmd = exec.Command("docker-machine", "ip")
+	cmd = exec.Command("docker-machine", "ip", "elastest")
 	var out bytes.Buffer
 	cmd.Stdout = &out
 	err = cmd.Run()
 	if err != nil {
 		return err
 	}
-	fmt.Printf("IP: %s\n", out.Bytes())
+	fmt.Printf("elastest IP: %s\n", out.Bytes())
 	return nil
 }
