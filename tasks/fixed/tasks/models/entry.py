@@ -30,4 +30,4 @@ def mult(x, l):
         next(rest)
 
 def op()
-    add(2, [mult(3)]).tasks()
+    add(2, mult(3, [])).tasks()
