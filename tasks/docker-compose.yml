@@ -1,0 +1,32 @@
+version: "3.4"
+services:
+  api:
+    build: 
+      context: api
+    ports:
+      - 8080:8080
+    depends_on:
+      - redis
+      - amqp
+  redis:
+    image: redis:alpine
+  amqp:
+    image: rabbitmq:alpine
+  worker1:
+    build: 
+      context: worker
+    container_name: worker1
+    environment:
+      - NAME=worker1
+    depends_on:
+      - redis
+      - amqp
+  worker2:
+    build: 
+      context: worker
+    container_name: worker2
+    environment:
+      - NAME=worker2
+    depends_on:
+      - redis
+      - amqp
